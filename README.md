@@ -2,10 +2,10 @@ This repository presents a segment of my work focused on human brain electrophys
 
 The primary objective is to investigate whether specific brain activations can be identified following a cognitive task, indicating the formation of memory traces. In particular, this project aims to:
 
-Detect EEG signatures associated with task-induced memory trace formation.
+- Detect EEG signatures associated with task-induced memory trace formation.
 
-Determine which frequency bands exhibit such signatures.
+- Determine which frequency bands exhibit such signatures.
 
-Identify which electrodes show the most prominent task-related activations.
+- Identify which electrodes show the most prominent task-related activations.
 
 The results of this analysis can provide insight into the neural correlates of memory encoding, with potential implications for cognitive neuroscience and clinical research.
