@@ -143,3 +143,47 @@ for iband in df_fit["band"].unique():
             "CvsR_se": CvsR_se,
             "CvsR_p": CvsR_p
         }])], ignore_index=True)
+
+#%%
+#Printing the results of statistical analysis p-value < 0.01
+from tabulate import tabulate
+
+def print_contrast_table(results, contrast_name, alpha=0.01):
+    """
+    Print a formatted table for a given contrast from the results DataFrame
+
+    Parameters:
+    - results: DataFrame with contrast results
+    - contrast_name: 'MvsC', 'MvsR', or 'CvsR'
+    - alpha: significance threshold for p-values
+    """
+    diff_col = f"{contrast_name}_diff"
+    se_col = f"{contrast_name}_se"
+    p_col = f"{contrast_name}_p"
+
+    filtered_results = results[results[p_col] < alpha].round(4)
+
+    contrast_labels = {
+        "MvsC": "M - C",
+        "MvsR": "M - R",
+        "CvsR": "C - R"
+    }
+
+    print(f"\nContrast: {contrast_labels.get(contrast_name, contrast_name)}\n")
+
+    if filtered_results.empty:
+        print(f"No results with p-values below {alpha}")
+    else:
+        table_data = filtered_results.reset_index(drop=True)
+        table_data.insert(0, "#", range(1, len(table_data) + 1))
+
+        # Convert to list of rows to avoid showing index
+        print(tabulate(
+            table_data[["#", "channel", "band", diff_col, se_col, p_col]].values.tolist(),
+            headers=["#", "Channel", "Band", "Diff", "SE", "p-value"],
+            tablefmt="pretty"
+        ))
+
+print_contrast_table(results, "MvsC")
+print_contrast_table(results, "MvsR")
+print_contrast_table(results, "CvsR")
