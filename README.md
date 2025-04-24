@@ -14,6 +14,7 @@ OUTPUT: significant meaningful results in the targeted brain areas
 
 Contrast: M - C
 Indicating the neuronal activity when contrasting performing the task vs the baseline of the task
+
 +---+---------+----------+---------+------+---------+
 | # | Channel |   Band   |  Diff   |  SE  | p-value |
 +---+---------+----------+---------+------+---------+
@@ -22,6 +23,7 @@ Indicating the neuronal activity when contrasting performing the task vs the bas
 
 Contrast: M - R
 Indicating the neuronal activity when contrasting performing the task vs the rest condition
+
 +---+---------+----------+---------+--------+---------+
 | # | Channel |   Band   |  Diff   |   SE   | p-value |
 +---+---------+----------+---------+--------+---------+
